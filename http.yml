@@ -1,0 +1,12 @@
+---
+- hosts: teja
+  become: yes
+  tasks:
+  - name: installing httpd  
+    yum: name=httpd state=latest
+  - name: starting httpd service
+    service: name=httpd state=started
+  - name: copying file
+    copy: src=/root/index.html dest=/var/www/html/index.html
+
+
